@@ -72,12 +72,10 @@ export const deleteContact = createAsyncThunk(
 );
 
 export const setContact = createAsyncThunk(
-  'tasks/addTask',
+  'contacts/addContact',
   async (contact, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', {
-        // token: tokenValue,
-        // id: nanoid(),
         name: contact.name,
         number: contact.number,
       });
