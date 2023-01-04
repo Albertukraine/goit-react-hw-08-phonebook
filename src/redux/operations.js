@@ -1,13 +1,57 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { nanoid } from '@reduxjs/toolkit';
+// import { nanoid } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://63a427c49704d18da09fd28c.mockapi.io';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+
+// const tokenValue = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2IzMmQ3ZDI2NTFmZTAwMTZjNjgzZTciLCJpYXQiOjE2NzI2ODkzMjl9.IYT6wVHy_l5RjavytgVkeQ1rfMDhTrVQlV6rGvaKRTs";
+
+
+
+
+
+
+// export const userRegister = createAsyncThunk(
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios.post('/users/signup', {
+//         "name": "Oleh Oleh",
+//         "email": "oleh@mail.com",
+//         "password": "QWEQWE"
+//       });
+//       console.log("UserRegister");
+//       return response.data
+//     } catch (e) {return thunkAPI.rejectWithValue(e.message)}
+//   }
+// );
+
+
+// export const userLogin = createAsyncThunk(
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await axios.post('/users/login', {
+//         "name": "Oleh Oleh",
+//         "email": "oleh@mail.com",
+//         "password": "QWEQWE"
+//       });
+//       console.log("UserLogin");
+//       return response.data
+//     } catch (e) {return thunkAPI.rejectWithValue(e.message)}
+//   }
+// );
+
+
+
+
+
+
+
+
 export const fetchContacts = createAsyncThunk(
   'fetchContacts',
-  async (_, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts');
+      const response = await axios.get('/contacts', credentials);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -32,7 +76,8 @@ export const setContact = createAsyncThunk(
   async (contact, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', {
-        id: nanoid(),
+        // token: tokenValue,
+        // id: nanoid(),
         name: contact.name,
         number: contact.number,
       });
