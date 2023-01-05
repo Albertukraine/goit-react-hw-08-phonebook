@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/266.88f2114c.chunk.js","mappings":"uMACe,SAASA,IACpB,OACE,0BACF,sDAGD,C","sources":["pages/Home.js"],"sourcesContent":["\nexport default function Home() {\n    return (\n      <div>\n    <h1>Excellent Phonebook Ever</h1>\n      </div>\n    );\n  }"],"names":["Home"],"sourceRoot":""}
