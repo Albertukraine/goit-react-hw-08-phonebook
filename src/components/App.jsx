@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { useAuth } from 'hooks';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
-import { Loader } from './Loader/Loader';
+
 
 const LoginPage = lazy(() => import('../pages/Login'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -23,18 +23,6 @@ export function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  // return (
-  //   <>
-  //     <Routes>
-  //       <Route path="/" element={<Layout />}>
-  //         <Route index element={<HomePage />} />
-  //         <Route path="register" element={<RegisterPage />} />
-  //         <Route path="phonebook" element={<PhoneBookPage />} />
-  //         <Route path="login" element={<LoginPage />} />
-  //       </Route>
-  //     </Routes>
-  //   </>
-  // );
 
 
   return isRefreshing ? (
