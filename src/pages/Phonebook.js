@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { Form } from 'components/Form/Form';
 import { Filter } from 'components/Filter/Filter';
@@ -7,10 +7,12 @@ import { Loader } from 'components/Loader/Loader';
 import { NameList } from 'components/NameList/NameList';
 import { fetchContacts } from 'redux/operations';
 
+// import { Loader } from 'components/Loader/Loader';
+
 
 export default function PhoneBook() {
   const dispatch = useDispatch();
-//   const isLoading = useSelector(selectLoading);
+ 
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -21,13 +23,12 @@ export default function PhoneBook() {
       <Helmet>
         <title>Phonebook</title>
       </Helmet>
-
       <Form />
       <Filter />
       <Loader />
       <NameList />
      
-      {/* <div>{isLoading && 'Request in progress...'}</div> */}
+      
       
     </>
   );

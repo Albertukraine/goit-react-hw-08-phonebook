@@ -18,13 +18,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-// ];
+
 
 const authPersistConfig = {
   key: 'auth',
