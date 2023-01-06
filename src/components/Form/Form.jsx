@@ -82,8 +82,3 @@ export const Form = () => {
   );
 };
 
-
-{/* <FormControl>
-  <FormLabel>Email address</FormLabel>
-  <Input type='email' />
-</FormControl> */}
