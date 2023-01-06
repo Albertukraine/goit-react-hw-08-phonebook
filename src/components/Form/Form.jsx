@@ -7,6 +7,11 @@ import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 
+import { FormControl } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+import { FormLabel } from '@chakra-ui/react';
+
 export const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -44,9 +49,11 @@ export const Form = () => {
     reset();
   };
   return (
-    <form onSubmit={handleSubmit} className={style.form}>
-      <label> Name{}</label>
-      <input
+    <form onSubmit={handleSubmit}>
+
+    <FormControl >
+      <FormLabel>Name</FormLabel>
+      <Input
         className={style.input}
         onChange={handleInputChange}
         value={name}
@@ -57,8 +64,8 @@ export const Form = () => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-      <label> Number{}</label>
-      <input
+      <FormLabel>Number</FormLabel>
+      <Input mb='8px'
         className={style.input}
         onChange={handleInputChange}
         value={number}
@@ -69,7 +76,14 @@ export const Form = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <button type="submit">Add Contact</button>
+      <Button type="submit">Add Contact</Button>
+      </FormControl>
     </form>
   );
 };
+
+
+{/* <FormControl>
+  <FormLabel>Email address</FormLabel>
+  <Input type='email' />
+</FormControl> */}
