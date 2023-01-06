@@ -1,6 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import css from './RegisterForm.module.css';
+import { FormControl } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
+import { FormLabel } from '@chakra-ui/react';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -19,20 +22,23 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
-      <label className={css.label}>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <FormControl>
+
+      <FormLabel>
         Username
-        <input type="text" name="name" />
-      </label>
-      <label className={css.label}>
+        <Input type="text" name="name" />
+      </FormLabel>
+      <FormLabel>
         Email
-        <input type="email" name="email" />
-      </label>
-      <label className={css.label}>
+        <Input type="email" name="email" />
+      </FormLabel>
+      <FormLabel>
         Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Register</button>
+        <Input type="password" name="password" />
+      </FormLabel>
+      <Button type="submit">Register</Button>
+      </FormControl>
     </form>
   );
 };

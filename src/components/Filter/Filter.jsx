@@ -1,7 +1,9 @@
-import style from './Filter.module.css';
 import { setFilterValue } from 'redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterValue } from 'redux/selectors';
+import { FormControl } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import { FormLabel } from '@chakra-ui/react';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -13,16 +15,16 @@ export const Filter = () => {
   };
 
   return (
-    <div className={style.filterWrapper}>
-      <label>Find contacts by name</label>
-      <input
-        className={style.input}
+    <FormControl>
+      <FormLabel>Find contacts by name</FormLabel>
+      <Input
+      mb={3}
         onInput={handleInput}
         value={value}
         type="text"
         name="filter"
         placeholder="Type name to find"
       />
-    </div>
+    </FormControl>
   );
 };

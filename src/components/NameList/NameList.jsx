@@ -1,7 +1,16 @@
-import style from './NameList.module.css';
+// import style from './NameList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/operations';
 import { getContacts, getFilterValue } from 'redux/selectors';
+import { Button } from '@chakra-ui/react';
+import { Spacer } from '@chakra-ui/react';
+import { Avatar } from '@chakra-ui/react';
+
+import {
+  List,
+  ListItem
+} from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 export const NameList = () => {
   const dispatch = useDispatch();
@@ -15,22 +24,24 @@ export const NameList = () => {
   );
 
   return (
-    <ul className={style.list}>
+    <List>
       {contacts.map(contact => (
-        <li key={contact.id}>
-          <p className={style.contactWrapper}>
-            <span className={style.nameText}>{contact.name}</span>
-            <span className={style.numberValue}>{contact.number}</span>
-          </p>
-          <button
+        <ListItem display='flex' key={contact.id} alignItems='center' mb={3}>
+
+         <Avatar name={contact.name} mr={3}></Avatar>
+            <Text as='b'> {contact.name}</Text>
+            <Spacer/>
+            <Text mr={3} >{contact.number}</Text>
+          
+          <Button
             name={contact.id}
-            className={style.deleteBtn}
+          
             onClick={() => dispatch(deleteContact(contact.id))}
           >
-            delete
-          </button>
-        </li>
+            Delete
+          </Button>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 };
