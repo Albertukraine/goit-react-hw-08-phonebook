@@ -1,7 +1,7 @@
-import style from './Form.module.css';
+
 import React from 'react';
 import { useState } from 'react';
-// import { setContact } from 'redux/contactsSlice';
+
 import { setContact } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
@@ -54,7 +54,7 @@ export const Form = () => {
     <FormControl >
       <FormLabel>Name</FormLabel>
       <Input
-        className={style.input}
+       
         onChange={handleInputChange}
         value={name}
         type="text"
@@ -64,9 +64,10 @@ export const Form = () => {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
+      
       <FormLabel>Number</FormLabel>
       <Input mb='8px'
-        className={style.input}
+        
         onChange={handleInputChange}
         value={number}
         type="tel"
